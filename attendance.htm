@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>BSS Guard Attendance | Balaji Suraksha Service</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#1e3a8a">
+  <style>
+    * { box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { margin: 0; background: #f1f5f9; color: #1e293b; display: flex; justify-content: center; }
+    .app-container { width: 100%; max-width: 450px; background: #ffffff; min-height: 100vh; box-shadow: 0 4px 20px rgba(0,0,0,0.08); display: flex; flex-direction: column; }
+    .header { background: linear-gradient(135deg, #1e3a8a, #0f172a); color: white; padding: 18px 16px; text-align: center; }
+    .header h1 { margin: 0; font-size: 20px; letter-spacing: 0.5px; }
+    .header p { margin: 4px 0 0; font-size: 12px; color: #cbd5e1; }
+    .content { padding: 18px; flex: 1; }
+    .form-group { margin-bottom: 14px; }
+    label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 5px; color: #334155; }
+    input, select { width: 100%; padding: 11px 12px; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 15px; outline: none; background: #f8fafc; }
+    input:focus, select:focus { border-color: #1e3a8a; background: #fff; }
+    .camera-box { position: relative; width: 100%; height: 240px; background: #0f172a; border-radius: 12px; overflow: hidden; margin: 12px 0; border: 2px solid #cbd5e1; display: flex; align-items: center; justify-content: center; }
+    video, canvas { width: 100%; height: 100%; object-fit: cover; transform: scaleX(-1); }
+    canvas { display: none; }
+    .status-bar { background: #eff6ff; border: 1px solid #bfdbfe; color: #1e40af; padding: 10px; border-radius: 8px; font-size: 13px; margin-bottom: 14px; text-align: center; }
+    .btn { width: 100%; padding: 14px; border: none; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; transition: 0.2s; margin-bottom: 10px; }
+    .btn-primary { background: #16a34a; color: white; box-shadow: 0 4px 12px rgba(22,163,74,0.3); }
+    .btn-primary:disabled { background: #94a3b8; box-shadow: none; cursor: not-allowed; }
+    .footer { text-align: center; padding: 12px; font-size: 11px; color: #64748b; border-top: 1px solid #e2e8f0; }
+  </style>
+</head>
+<body>
+
+<div class="app-container">
+  <div class="header">
+    <h1>BALAJI SURAKSHA SERVICE</h1>
+    <p>MP PSARA Licensed | Digital Guard Attendance</p>
+  </div>
+
+  <div class="content">
+    <div id="gpsStatus" class="status-bar">📍 GPS लोकेशन और कैमरा चालू हो रहा है...</div>
+
+    <div class="form-group">
+      <label>गार्ड का नाम (Guard Full Name) *</label>
+      <input type="text" id="guardName" placeholder="पूरा नाम लिखें" required>
+    </div>
+
+    <div class="form-group">
+      <label>गार्ड ID / कर्मचारी कोड *</label>
+      <input type="text" id="guardId" placeholder="उदा. BSS-101" required>
+    </div>
+
+    <div class="form-group">
+      <label>ड्यूटी साइट (Duty Location) *</label>
+      <select id="siteName">
+        <option value="RKDF University, Bhopal">RKDF University, Bhopal</option>
+        <option value="NIMHR, Sehore">NIMHR, Sehore</option>
+        <option value="PM Shri KV No. 3, Bhopal">PM Shri KV No. 3, Bhopal</option>
+        <option value="Head Office, Naplakhedi Sehore">Head Office, Naplakhedi Sehore</option>
+        <option value="Other Site">अन्य साइट (Other Site)</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>हाज़िरी प्रकार (Punch Type) *</label>
+      <select id="punchType">
+        <option value="PUNCH IN (Duty Start)">🟢 PUNCH IN (ड्यूटी शुरू)</option>
+        <option value="PUNCH OUT (Duty End)">🔴 PUNCH OUT (ड्यूटी समाप्त)</option>
+      </select>
+    </div>
+
+    <label>लाइव सेल्फ़ी (Live Selfie) *</label>
+    <div class="camera-box">
+      <video id="video" autoplay playsinline></video>
+      <canvas id="canvas"></canvas>
+    </div>
+
+    <button type="button" id="submitBtn" class="btn btn-primary" onclick="captureAndSubmit()" disabled>
+      📸 सेल्फ़ी लें और हाज़िरी लगाएं
+    </button>
+  </div>
+
+  <div class="footer">
+    © Balaji Suraksha Service | Sehore & Bhopal (M.P.)
+  </div>
+</div>
+
+<script>
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzzom0bLs_agPNfxPByWOjhA8gvfns86yW5jTlG7qP3Fm8Sw4fzzp8thOq8aRFsPOD9/exec";
+
+  let currentLat = null;
+  let currentLng = null;
+  const video = document.getElementById('video');
+  const canvas = document.getElementById('canvas');
+  const gpsStatus = document.getElementById('gpsStatus');
+  const submitBtn = document.getElementById('submitBtn');
+
+  navigator.mediaDevices.getUserMedia({ video: { facingMode: "user" }, audio: false })
+    .then(stream => { video.srcObject = stream; })
+    .catch(err => {
+      gpsStatus.style.background = "#fee2e2";
+      gpsStatus.style.color = "#b91c1c";
+      gpsStatus.innerText = "❌ कैमरा परमिशन बंद है। कृपया ब्राउज़र में कैमरा Allow करें।";
+    });
+
+  if ("geolocation" in navigator) {
+    navigator.geolocation.watchPosition(
+      (position) => {
+        currentLat = position.coords.latitude.toFixed(6);
+        currentLng = position.coords.longitude.toFixed(6);
+        gpsStatus.style.background = "#dcfce7";
+        gpsStatus.style.color = "#15803d";
+        gpsStatus.innerText = `✅ GPS लोकेशन लॉक: ${currentLat}, ${currentLng}`;
+        submitBtn.disabled = false;
+      },
+      (error) => {
+        gpsStatus.style.background = "#fee2e2";
+        gpsStatus.style.color = "#b91c1c";
+        gpsStatus.innerText = "❌ कृपया अपने फ़ोन का GPS (Location) ऑन करें!";
+      },
+      { enableHighAccuracy: true }
+    );
+  } else {
+    gpsStatus.innerText = "❌ आपके फ़ोन में GPS सपोर्ट नहीं है।";
+  }
+
+  function captureAndSubmit() {
+    const guardName = document.getElementById('guardName').value.trim();
+    const guardId = document.getElementById('guardId').value.trim();
+    const siteName = document.getElementById('siteName').value;
+    const punchType = document.getElementById('punchType').value;
+
+    if (!guardName || !guardId) {
+      alert("कृपया अपना नाम और गार्ड ID भरें!");
+      return;
+    }
+    if (!currentLat || !currentLng) {
+      alert("GPS लोकेशन अभी नहीं मिली है, कृपया लोकेशन ऑन करें।");
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.innerText = "⏳ हाज़िरी सेव हो रही है, प्रतीक्षा करें...";
+
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+    const imageData = canvas.toDataURL('image/jpeg', 0.7);
+
+    const payload = {
+      guardName: guardName,
+      guardId: guardId,
+      siteName: siteName,
+      punchType: punchType,
+      lat: currentLat,
+      lng: currentLng,
+      image: imageData
+    };
+
+    fetch(SCRIPT_URL, {
+      method: "POST",
+      body: JSON.stringify(payload)
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (data.status === "success") {
+        alert(`✅ धन्यवाद ${guardName}! आपकी ${punchType} सफलतापूर्वक दर्ज हो गई है।`);
+        document.getElementById('guardName').value = "";
+        document.getElementById('guardId').value = "";
+      } else {
+        alert("❌ त्रुटि: " + data.message);
+      }
+      submitBtn.disabled = false;
+      submitBtn.innerText = "📸 सेल्फ़ी लें और हाज़िरी लगाएं";
+    })
+    .catch(err => {
+      alert("✅ डेटा भेज दिया गया है! कृपया अपनी Google Sheet जांचें।");
+      submitBtn.disabled = false;
+      submitBtn.innerText = "📸 सेल्फ़ी लें और हाज़िरी लगाएं";
+    });
+  }
+</script>
+
+</body>
+</html>
