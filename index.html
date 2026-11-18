@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Balaji Suraksha Service | PSARA Licensed Security Agency, Sehore (M.P.)</title>
-  <meta name="description" content="Govt. of M.P. PSARA Licensed Private Security & Manpower Agency in Sehore & Bhopal. Police-verified security guards, armed guards, and supervisors." />
+  <title>बालाजी सुरक्षा सर्विस | Balaji Suraksha Service - PSARA Licensed Security Agency, Sehore (M.P.)</title>
+  <meta name="description" content="मध्य प्रदेश शासन से मान्यता प्राप्त (PSARA Licensed) प्राइवेट सिक्योरिटी एवं मैनपावर एजेंसी - सीहोर एवं भोपाल। प्रशिक्षित सुरक्षा गार्ड, सुपरवाइजर एवं हाउसकीपिंग सेवाएं।" />
   
   <!-- Tailwind CSS with Fallback -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -15,17 +15,17 @@
   </script>
   <style>
     html { scroll-behavior: smooth; }
-    body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+    body { font-family: 'Segoe UI', 'Noto Sans Devanagari', Roboto, sans-serif; }
   </style>
 </head>
 <body class="bg-stone-50 text-stone-800 antialiased">
 
-  <!-- Top Saffron-Dark Compliance Strip -->
+  <!-- Top Compliance Strip -->
   <div class="bg-stone-950 text-stone-200 text-xs py-2.5 px-4 border-b border-amber-600/40">
     <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-1">
       <div class="flex items-center gap-2">
         <span class="inline-block w-2 h-2 rounded-full bg-amber-500"></span>
-        <span>Govt. of M.P. PSARA License: <strong class="text-amber-400 tracking-wide">PSA/L/60/MP/2026/NOV/3/1878</strong></span>
+        <span>म.प्र. शासन PSARA लाइसेंस नं.: <strong class="text-amber-400 tracking-wide">PSA/L/60/MP/2026/NOV/3/1878</strong></span>
       </div>
       <div class="flex items-center gap-5">
         <a href="tel:+919200266300" class="hover:text-amber-400 transition">📞 +91 92002 66300</a>
@@ -36,311 +36,47 @@
 
   <!-- Main Header -->
   <header class="bg-white shadow-sm sticky top-0 z-50 border-b border-stone-200">
-    <div class="max-w-6xl mx-auto px-4 py-3.5 flex justify-between items-center">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
       <div class="flex items-center gap-3">
-        <!-- अपना लोगो अपलोड करने के बाद नीचे src="logo.png" काम करेगा -->
         <img src="logo.png" onerror="this.style.display='none'" alt="Balaji Suraksha Service Logo" class="h-12 w-12 object-contain rounded">
         <div class="border-l-4 border-orange-600 pl-3">
-          <h1 class="text-xl font-extrabold text-stone-900 tracking-tight leading-none">BALAJI SURAKSHA SERVICE</h1>
-          <p class="text-xs font-medium text-amber-700 mt-1">PSARA Licensed Security & Manpower Agency</p>
+          <h1 class="text-lg md:text-xl font-extrabold text-stone-900 tracking-tight leading-none">
+            <span class="lang-hi">बालाजी सुरक्षा सर्विस</span>
+            <span class="lang-en hidden">BALAJI SURAKSHA SERVICE</span>
+          </h1>
+          <p class="text-xs font-medium text-amber-700 mt-1">
+            <span class="lang-hi">Balaji Suraksha Service • PSARA लाइसेंस प्राप्त सुरक्षा एजेंसी</span>
+            <span class="lang-en hidden">Licensed Private Security & Manpower Agency, Sehore (M.P.)</span>
+          </p>
         </div>
       </div>
 
-      <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-stone-700">
-        <a href="#about" class="hover:text-orange-600 transition">About</a>
-        <a href="#services" class="hover:text-orange-600 transition">Services</a>
-        <a href="#gallery" class="hover:text-orange-600 transition">Field Deployment</a>
-        <a href="#leadership" class="hover:text-orange-600 transition">Leadership</a>
-        <a href="#contact" class="bg-orange-600 text-white px-4 py-2 rounded shadow-sm hover:bg-orange-700 transition">Get Quotation</a>
-      </nav>
+      <div class="flex items-center gap-4">
+        <nav class="hidden md:flex items-center gap-5 text-sm font-semibold text-stone-700">
+          <a href="#services" class="hover:text-orange-600 transition">
+            <span class="lang-hi">सेवाएं</span><span class="lang-en hidden">Services</span>
+          </a>
+          <a href="#gallery" class="hover:text-orange-600 transition">
+            <span class="lang-hi">गार्ड तैनाती</span><span class="lang-en hidden">Deployment</span>
+          </a>
+          <a href="#leadership" class="hover:text-orange-600 transition">
+            <span class="lang-hi">प्रबंधन टीम</span><span class="lang-en hidden">Leadership</span>
+          </a>
+          <a href="#contact" class="bg-orange-600 text-white px-4 py-2 rounded shadow-sm hover:bg-orange-700 transition">
+            <span class="lang-hi">कोटेशन / पूछताछ</span><span class="lang-en hidden">Get Quote</span>
+          </a>
+        </nav>
+
+        <!-- Language Switcher Button -->
+        <button onclick="toggleLanguage()" id="langBtn" class="border-2 border-orange-600 text-orange-700 hover:bg-orange-600 hover:text-white font-bold text-xs px-3 py-1.5 rounded transition">
+          English में देखें
+        </button>
+      </div>
     </div>
   </header>
 
-  <!-- Hero Section (Dark Charcoal & Saffron Corporate Banner) -->
+  <!-- Hero Section -->
   <section class="bg-stone-900 text-white border-b-4 border-amber-500">
-    <div class="max-w-6xl mx-auto px-4 py-14 md:py-20 grid md:grid-cols-2 gap-10 items-center">
+    <div class="max-w-6xl mx-auto px-4 py-14 md:py-18 grid md:grid-cols-2 gap-10 items-center">
       <div>
-        <div class="inline-flex items-center gap-2 bg-amber-500/15 border border-amber-500/40 text-amber-300 text-xs font-semibold px-3 py-1 rounded mb-5">
-          <span>★</span> Trusted Security Partner Across Sehore, Bhopal & M.P.
-        </div>
-        <h2 class="text-3xl md:text-4xl font-extrabold text-white leading-tight mb-4">
-          Vigilant, Trained & Police-Verified <span class="text-amber-400">Security Forces</span>
-        </h2>
-        <p class="text-stone-300 text-base leading-relaxed mb-7">
-          We deploy uniformed security guards, armed personnel, shift supervisors, and facility staff for universities, schools, hospitals, industries, and government establishments with 100% statutory compliance.
-        </p>
-        <div class="flex flex-wrap gap-3">
-          <a href="#contact" class="bg-orange-600 text-white font-semibold px-6 py-3 rounded shadow hover:bg-orange-700 transition">
-            Request Guard Deployment
-          </a>
-          <a href="tel:+919200266300" class="bg-stone-800 border border-stone-600 text-amber-300 font-semibold px-6 py-3 rounded hover:bg-stone-700 transition">
-            Call: 92002 66300
-          </a>
-        </div>
-      </div>
-
-      <!-- Main Hero Guard Photo -->
-      <div class="relative rounded-lg overflow-hidden border-2 border-amber-500/50 shadow-2xl bg-stone-800">
-        <!-- अपनी गार्ड की मुख्य फोटो 'hero-guard.jpg' नाम से GitHub पर अपलोड करें -->
-        <img src="hero-guard.jpg" 
-             onerror="this.src='https://images.unsplash.com/photo-1582139329536-e7284fece509?auto=format&fit=crop&w=950&q=80'" 
-             alt="Uniformed Security Guard - Balaji Suraksha Service" 
-             class="w-full h-80 object-cover">
-        <div class="bg-stone-950/90 px-4 py-3 flex justify-between items-center text-xs border-t border-stone-700">
-          <span class="text-amber-400 font-semibold">● 24x7 Active Site Supervision</span>
-          <span class="text-stone-300">EPF • ESIC • GST • PSARA</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Statutory & Compliance Strip -->
-  <section class="bg-amber-50 border-b border-amber-200 py-8">
-    <div class="max-w-6xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-4">
-      <div class="bg-white p-4 rounded-lg border-l-4 border-orange-600 shadow-sm">
-        <div class="text-sm font-bold text-stone-900">M.P. PSARA Licensed</div>
-        <div class="text-xs text-stone-600 mt-1">Approved by Home Dept., Govt. of M.P.</div>
-      </div>
-      <div class="bg-white p-4 rounded-lg border-l-4 border-amber-500 shadow-sm">
-        <div class="text-sm font-bold text-stone-900">100% EPF & ESIC</div>
-        <div class="text-xs text-stone-600 mt-1">Timely Wages & Statutory Challans</div>
-      </div>
-      <div class="bg-white p-4 rounded-lg border-l-4 border-orange-600 shadow-sm">
-        <div class="text-sm font-bold text-stone-900">GeM & Tender Ready</div>
-        <div class="text-xs text-stone-600 mt-1">GST & Professional Tax Registered</div>
-      </div>
-      <div class="bg-white p-4 rounded-lg border-l-4 border-amber-500 shadow-sm">
-        <div class="text-sm font-bold text-stone-900">Police Verified Staff</div>
-        <div class="text-xs text-stone-600 mt-1">Strict Character & ID Screening</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services Section -->
-  <section id="services" class="py-16 max-w-6xl mx-auto px-4">
-    <div class="mb-10 border-l-4 border-orange-600 pl-4">
-      <h3 class="text-2xl font-extrabold text-stone-900">Our Security & Manpower Services</h3>
-      <p class="text-stone-600 text-sm mt-1">Disciplined deployment tailored for educational, industrial, and commercial premises.</p>
-    </div>
-
-    <div class="grid md:grid-cols-3 gap-6">
-      <div class="bg-white p-6 rounded-lg border border-stone-200 shadow-sm hover:border-amber-500 transition">
-        <div class="text-xs font-bold text-orange-600 uppercase tracking-wider mb-2">01 / Campuses</div>
-        <h4 class="text-lg font-bold text-stone-900 mb-2">Universities, Schools & Colleges</h4>
-        <p class="text-sm text-stone-600 leading-relaxed">
-          Strict entry-gate verification, student safety monitoring, hostel security, and daytime/nighttime campus patrolling.
-        </p>
-      </div>
-
-      <div class="bg-white p-6 rounded-lg border border-stone-200 shadow-sm hover:border-amber-500 transition">
-        <div class="text-xs font-bold text-orange-600 uppercase tracking-wider mb-2">02 / Industries</div>
-        <h4 class="text-lg font-bold text-stone-900 mb-2">Factories, Warehouses & Offices</h4>
-        <p class="text-sm text-stone-600 leading-relaxed">
-          Material inward-outward register maintenance, weighbridge checking, perimeter vigilance, and trained shift supervisors.
-        </p>
-      </div>
-
-      <div class="bg-white p-6 rounded-lg border border-stone-200 shadow-sm hover:border-amber-500 transition">
-        <div class="text-xs font-bold text-orange-600 uppercase tracking-wider mb-2">03 / Healthcare & Govt.</div>
-        <h4 class="text-lg font-bold text-stone-900 mb-2">Hospitals & Institutional Support</h4>
-        <p class="text-sm text-stone-600 leading-relaxed">
-          OPD/emergency crowd management, parking control, female security guards, and housekeeping support personnel.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Guard Photos / Field Operations Gallery -->
-  <section id="gallery" class="bg-stone-900 text-white py-16 border-t border-b border-stone-800">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="mb-10 border-l-4 border-amber-500 pl-4">
-        <h3 class="text-2xl font-extrabold text-white">Guard Deployment & Vigilance</h3>
-        <p class="text-stone-400 text-sm mt-1">Alert, uniformed personnel trained for access control, patrolling, and emergency response.</p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-6">
-        <!-- Guard Photo 1 -->
-        <div class="bg-stone-800 rounded-lg overflow-hidden border border-stone-700">
-          <img src="guard1.jpg" 
-               onerror="this.src='https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=800&q=80'" 
-               alt="Gate Access Control Security Guard" 
-               class="w-full h-56 object-cover">
-          <div class="p-4">
-            <h4 class="font-bold text-amber-400 text-sm">Gate & Access Control</h4>
-            <p class="text-xs text-stone-300 mt-1">Strict visitor entry logging and vehicle inspection at main gates.</p>
-          </div>
-        </div>
-
-        <!-- Guard Photo 2 -->
-        <div class="bg-stone-800 rounded-lg overflow-hidden border border-stone-700">
-          <img src="guard2.jpg" 
-               onerror="this.src='https://images.unsplash.com/photo-1590650153855-d9e808231d41?auto=format&fit=crop&w=800&q=80'" 
-               alt="Corporate & Institutional Security Supervisor" 
-               class="w-full h-56 object-cover">
-          <div class="p-4">
-            <h4 class="font-bold text-amber-400 text-sm">Corporate & Campus Vigilance</h4>
-            <p class="text-xs text-stone-300 mt-1">Well-groomed uniformed guards for institutions, banks, and offices.</p>
-          </div>
-        </div>
-
-        <!-- Guard Photo 3 -->
-        <div class="bg-stone-800 rounded-lg overflow-hidden border border-stone-700">
-          <img src="guard3.jpg" 
-               onerror="this.src='https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&w=800&q=80'" 
-               alt="24x7 Night Patrolling & Supervision" 
-               class="w-full h-56 object-cover">
-          <div class="p-4">
-            <h4 class="font-bold text-amber-400 text-sm">24x7 Shift & Night Supervision</h4>
-            <p class="text-xs text-stone-300 mt-1">Regular surprise night inspections by field officers across all sites.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About & Office Section -->
-  <section id="about" class="bg-white py-16 border-b border-stone-200">
-    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
-      <div>
-        <img src="office.jpg" 
-             onerror="this.src='https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=900&q=80'" 
-             alt="Balaji Suraksha Service Office Sehore" 
-             class="w-full h-72 object-cover rounded-lg border border-stone-300 shadow-sm">
-      </div>
-      <div>
-        <span class="text-xs font-bold text-orange-600 uppercase tracking-wider">About Our Agency</span>
-        <h3 class="text-2xl font-extrabold text-stone-900 mt-1 mb-4">Committed to Discipline & Statutory Transparency</h3>
-        <p class="text-sm text-stone-600 leading-relaxed mb-4">
-          Headquartered at Naplakhedi on the Indore-Bhopal Highway in Sehore (M.P.), <strong>Balaji Suraksha Service</strong> operates under valid PSARA authorization issued by the Home Department, Government of Madhya Pradesh.
-        </p>
-        <p class="text-sm text-stone-600 leading-relaxed mb-5">
-          Unlike unorganized manpower suppliers, we ensure transparent billing, timely salary transfers, and full EPF, ESIC, and GST compliance—giving complete peace of mind to institutional and government clients.
-        </p>
-        <div class="bg-amber-50 border border-amber-200 p-3.5 rounded text-xs text-stone-800">
-          <strong>Registered Office:</strong> Flat No. 01, Indore-Bhopal Highway, Naplakhedi, Sehore (M.P.) - 466001
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Leadership & Management Team -->
-  <section id="leadership" class="py-16 max-w-6xl mx-auto px-4">
-    <div class="mb-10 border-l-4 border-orange-600 pl-4">
-      <h3 class="text-2xl font-extrabold text-stone-900">Leadership & Management</h3>
-      <p class="text-stone-600 text-sm mt-1">Dedicated leadership team overseeing client relations, field operations, and statutory compliance.</p>
-    </div>
-
-    <div class="grid md:grid-cols-3 gap-6">
-      <!-- Managing Director -->
-      <div class="bg-white p-6 rounded-lg border-t-4 border-orange-600 border-x border-b border-stone-200 shadow-sm">
-        <div class="flex items-center gap-4 mb-4">
-          <img src="chandar.jpg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Chandar Goswami" class="w-16 h-16 rounded-full object-cover border-2 border-amber-500">
-          <div style="display:none;" class="w-16 h-16 rounded-full bg-stone-900 text-amber-400 border-2 border-amber-500 font-bold text-lg items-center justify-center">CG</div>
-          <div>
-            <h4 class="text-lg font-bold text-stone-900">Chandar Goswami</h4>
-            <span class="inline-block bg-orange-50 text-orange-700 border border-orange-200 text-xs font-bold px-2.5 py-0.5 rounded mt-1">
-              Managing Director (MD)
-            </span>
-          </div>
-        </div>
-        <p class="text-sm text-stone-600 leading-relaxed">
-          Leads overall company vision, institutional client partnerships, and service quality benchmarks across Madhya Pradesh.
-        </p>
-      </div>
-
-      <!-- Director - Operations -->
-      <div class="bg-white p-6 rounded-lg border-t-4 border-amber-500 border-x border-b border-stone-200 shadow-sm">
-        <div class="flex items-center gap-4 mb-4">
-          <img src="mahendra.jpg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Mahendra Gahlot" class="w-16 h-16 rounded-full object-cover border-2 border-stone-300">
-          <div style="display:none;" class="w-16 h-16 rounded-full bg-stone-800 text-white font-bold text-lg items-center justify-center">MG</div>
-          <div>
-            <h4 class="text-lg font-bold text-stone-900">Mahendra Gahlot</h4>
-            <span class="inline-block bg-amber-50 text-amber-800 border border-amber-200 text-xs font-bold px-2.5 py-0.5 rounded mt-1">
-              Director – Operations
-            </span>
-          </div>
-        </div>
-        <p class="text-sm text-stone-600 leading-relaxed">
-          Heads guard recruitment, physical drill training, site deployment, shift rosters, and night-checking supervision.
-        </p>
-      </div>
-
-      <!-- Director - Admin & Compliance -->
-      <div class="bg-white p-6 rounded-lg border-t-4 border-amber-500 border-x border-b border-stone-200 shadow-sm">
-        <div class="flex items-center gap-4 mb-4">
-          <img src="vinay.jpg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Vinay Sharma" class="w-16 h-16 rounded-full object-cover border-2 border-stone-300">
-          <div style="display:none;" class="w-16 h-16 rounded-full bg-stone-800 text-white font-bold text-lg items-center justify-center">VS</div>
-          <div>
-            <h4 class="text-lg font-bold text-stone-900">Vinay Sharma</h4>
-            <span class="inline-block bg-amber-50 text-amber-800 border border-amber-200 text-xs font-bold px-2.5 py-0.5 rounded mt-1">
-              Director – Admin & Compliance
-            </span>
-          </div>
-        </div>
-        <p class="text-sm text-stone-600 leading-relaxed">
-          Oversees PSARA licensing, EPF/ESIC/GST compliance, payroll accuracy, and GeM/institutional tender documentation.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Direct Contact & WhatsApp Quote Section -->
-  <section id="contact" class="py-16 max-w-6xl mx-auto px-4 border-t border-stone-200">
-    <div class="bg-white rounded-lg border border-stone-200 shadow-md p-6 md:p-10 grid md:grid-cols-2 gap-8">
-      <div>
-        <span class="text-xs font-bold text-orange-600 uppercase tracking-wider">Get In Touch</span>
-        <h3 class="text-2xl font-extrabold text-stone-900 mt-1 mb-3">Request Security Quotation</h3>
-        <p class="text-sm text-stone-600 mb-6">
-          Contact us for deployment of Unarmed Guards, Armed Guards, Supervisors, or Housekeeping Manpower in Sehore, Bhopal, and nearby districts.
-        </p>
-        
-        <div class="space-y-3 text-sm text-stone-700 bg-stone-50 p-4 rounded border border-stone-200">
-          <p><strong>Office Address:</strong> Flat No. 01, Indore-Bhopal Highway, Naplakhedi, Sehore, M.P. 466001</p>
-          <p><strong>Direct Contact:</strong> <a href="tel:+919200266300" class="text-orange-700 font-bold">+91 92002 66300</a></p>
-          <p><strong>Email ID:</strong> <a href="mailto:info@balajisurakshaservice.in" class="text-orange-700 font-bold">info@balajisurakshaservice.in</a></p>
-          <p><strong>PSARA License No.:</strong> PSA/L/60/MP/2026/NOV/3/1878</p>
-        </div>
-      </div>
-
-      <!-- WhatsApp Direct Inquiry Form -->
-      <form onsubmit="sendWhatsApp(event)" class="space-y-4">
-        <div>
-          <label class="block text-xs font-bold text-stone-700 uppercase mb-1">Your Name / Institution Name</label>
-          <input type="text" id="clientName" required placeholder="Enter your name or organization" class="w-full border border-stone-300 rounded px-3 py-2.5 text-sm focus:outline-none focus:border-orange-600">
-        </div>
-        <div>
-          <label class="block text-xs font-bold text-stone-700 uppercase mb-1">Mobile Number</label>
-          <input type="tel" id="clientPhone" required placeholder="Enter 10-digit mobile number" class="w-full border border-stone-300 rounded px-3 py-2.5 text-sm focus:outline-none focus:border-orange-600">
-        </div>
-        <div>
-          <label class="block text-xs font-bold text-stone-700 uppercase mb-1">Manpower Requirement</label>
-          <textarea id="clientMsg" rows="3" required placeholder="e.g., Need 10 Security Guards and 1 Supervisor in Bhopal/Sehore..." class="w-full border border-stone-300 rounded px-3 py-2.5 text-sm focus:outline-none focus:border-orange-600"></textarea>
-        </div>
-        <button type="submit" class="w-full bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 rounded text-sm shadow transition">
-          Send Requirement on WhatsApp
-        </button>
-      </form>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-stone-950 text-stone-400 text-xs py-6 px-4 border-t border-amber-600/30">
-    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
-      <div>© 2026 <span class="text-stone-200 font-semibold">Balaji Suraksha Service</span>, Sehore (M.P.). All Rights Reserved.</div>
-      <div class="text-amber-400/90">PSARA License: PSA/L/60/MP/2026/NOV/3/1878</div>
-    </div>
-  </footer>
-
-  <script>
-    function sendWhatsApp(e) {
-      e.preventDefault();
-      var name = document.getElementById('clientName').value;
-      var phone = document.getElementById('clientPhone').value;
-      var msg = document.getElementById('clientMsg').value;
-      var text = "Hello Balaji Suraksha Service,%0A*Name/Org:* " + encodeURIComponent(name) + "%0A*Phone:* " + encodeURIComponent(phone) + "%0A*Requirement:* " + encodeURIComponent(msg);
-      window.open("https://wa.me/919200266300?text=" + text, "_blank");
-    }
-  </script>
-
-</body>
-</html>
+        <div class="inline-flex items-center gap-2 bg-amber-500/15 border border-amber-500/40 text-amber-300 text-xs font-semibold px-3 py-1
