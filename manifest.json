@@ -1,0 +1,16 @@
+{
+  "name": "Balaji Suraksha Service - Attendance",
+  "short_name": "BSS Attendance",
+  "start_url": "/attendance.html",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#1e3a8a",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/1161/1161388.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
